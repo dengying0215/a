@@ -1,0 +1,30 @@
+版本控制管理工具
+  集中式版本控制管理
+    CVS 
+  分布式版本控制管理
+    git
+
+Unix,收费,不开源
+Linux,Linus,维护更新Linux内核代码,BitKeeper
+GitHub
+
+git最初是为了管理Linux内核代码而诞生的
+
+1、Shell指令
+  Linux中文件夹也叫作目录
+  1)pwd,cd,ls
+    pwd:print working directory
+        打印当前所在的路径
+    ls :list
+        显示当前目录中的所有非隐藏文件或目录
+        蓝色(后缀/):表示目录/文件夹
+        白色:表示文件
+        绿色(后缀*):表示可执行文件(双击可运行)
+        .lnk:超链接,快捷方式
+    cd :change directory  
+        切换工作目录
+        cd a 切换到当前目录下的a目录中去
+        cd ..  切换到上一级目录
+        cd a/b/c/d 
+        cd ~ : ~表示当前登录用户的主目录
+                该指令表示切换到主目录去
