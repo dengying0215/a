@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+  <title>Document</title>`
+  <script src='../libs/angular.min.js'></script>
+</head>
+<body ng-app='app'>
+  <ul ng-controller='ctrl'>
+    <li>
+      uppercase:{{message | uppercase}}
+    </li>
+    <li>
+        lowercase:{{message | lowercase}}
+    </li>
+    <li>
+      date:{{time | date:"yyyy-MM-dd HH:mm:ss"}}
+    </li>
+    <li>
+      currency:{{money | currency}} <br> {{money | currency:"￥"}} 
+    </li>
+    <li>
+      {{obj}} <br>
+      json:{{obj | json}} <br>
+      <!-- {{stu}} -->
+    </li>
+    <li>
+        filter:{{names | filter:'a'}}
+    </li>
+    <li>
+      limitTo:{{message | limitTo:4}} <br>
+              {{message | limitTo:-5}} <br>
+              {{names | limitTo:-9}}
+    </li>
+    <li>
+      number:{{num | number}} <br>
+             {{num | number:2}}
+    </li>
+    <li>
+      orderBy: <br>
+      {{nums | orderBy:"":true}} <br>
+      {{names | orderBy:"":true}} <br>
+      {{stus | orderBy:"age":true}} 
+    </li>
+    <li>
+        {{nums | orderBy:'-'}} <br>
+        {{names | orderBy:'+'}} <br>
+        {{stus | orderBy:["+age","-id"]}} <br>
+        {{stus | orderBy:'-age'}} 
+      </li>
+      <li ng-repeat='n in names | filter:"a"'>
+        {{n}}
+      </li>
+  </ul>
+</body>
+<script>
+  // function Stu(name,age){
+  //   this.name=name;
+  //   this.age=age;
+  // }
+  // var student=new Stu('李四',20);
+  var app = angular.module('app', []);
+  app.controller('ctrl',['$scope',function($scope){
+    $scope.message='good good study,DAY DAY UP';
+    $scope.time=new Date();
+    $scope.money=26;
+    $scope.obj=new Object();
+    $scope.obj.name='张三';
+    $scope.obj.age=23;
+    // $scope.stu=student;
+    $scope.names=['zhangsan','lucy','lisi','rose','alsa'];
+    $scope.num=1234.5678;
+    $scope.nums=[9,1,7,3,6,2,4];
+    $scope.stus=[
+      {id:101,name:'Mike',age:12},
+      {id:101,name:'Sane',age:15},
+      {id:102,name:'Allen',age:18},
+      {id:103,name:'Licy',age:19},
+      {id:102,name:'Rose',age:13}
+    ]
+  }]);
+</script>
+
+</html>

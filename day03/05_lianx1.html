@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="../libs/angular.min.js"></script>
+</head>
+<body ng-app="app">
+  <div>
+    <ul ng-controller="ctrl">
+      <li>{{str}}</li>
+      <li>{{num}}</li>
+      <li>{{arr[2]}}</li>
+      <li>{{obj.likes}}</li>
+    </ul>
+  </div>
+  <script>
+  var app=angular.module('app',[]);
+  app.controller('ctrl',['$scope',function($scope){
+    $scope.str='蓝忘机';
+    $scope.num=30;
+    $scope.arr=['魔道祖师','武庚纪','狐妖小红娘'];
+    $scope.obj={'myname':'东方月初','likes':'白月初','love':'涂山红红'};
+  }])
+  </script>
+</body>
+</html>

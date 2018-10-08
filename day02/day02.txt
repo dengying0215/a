@@ -83,7 +83,7 @@
 
 2、GitHub的使用
   https://github.com/
-  远程仓库
+  远程仓库 
   1)注册登录
   2)新建远程仓库
     单击右上角 + ---> new repository ---> 在Repository name 框里输入远程仓库的名称 
@@ -101,3 +101,4 @@
     settings ---> Danger Zone
   6)删除本地仓库与远程仓库之间的关联
     git remote remove origin
+

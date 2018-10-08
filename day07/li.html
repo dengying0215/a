@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+  <title>Document</title>
+  <script src='../libs/angular.min.js'></script>
+</head>
+<body ng-app='app'>
+  <ul>
+    <li>{{'abde'|uppercase}}</li>
+    <li>{{'abde'|initcase}}</li>
+  </ul>
+  <div ng-controller='ctrl'></div>
+</body>
+<script>
+  var app = angular.module('app', []);
+  app.controller('ctrl',function($log){
+    $log.debug('debug');
+    $log.info('info');
+    $log.warn('warn');
+  })
+  app.config(function($filterProvider,$logProvider){
+    console.log($logProvider);
+    $filterProvider.register('initcase',function(){
+      return function(str){
+        return str[0].toUpperCase()+str.slice(1);
+      }
+    })
+  })
+</script>
+</html>

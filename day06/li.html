@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+  <title>Document</title>
+  <script src='../libs/angular.min.js'></script>
+</head>
+<body ng-app='app'>
+  <div ng-controller='ctrl'>
+    <ul>
+      <li>{{now}}</li>
+      <li>{{num}}</li>
+      <li>{{pi}}</li>
+    </ul>
+  </div>
+</body>
+<script>
+  var app = angular.module('app', []);
+  app.controller('ctrl',function($scope,self,PI){
+    $scope.now=self.a();
+    $scope.num=self.b();
+    $scope.pi=PI;
+  })
+ 
+  app.factory('self',function($filter){
+    var d=$filter('date');     
+    function getDate(){
+      return d(new Date(),'yyyy-MM-dd HH:mm:ss');
+    }  
+    function getRand(){
+        return Math.random();
+      }
+      console.log(123);
+      return {
+        a:getDate,
+        b:getRand
+    } 
+    
+  });
+  app.value('PI',3.1415);
+</script>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+  <title>Document</title>
+  <style>
+    .bgc{background:pink;}
+  </style>
+  <script src='../libs/angular.min.js'></script>
+</head>
+<body ng-app='app'>
+  <ul ng-controller='ctrl'>
+    <li>
+      <label>
+        <input type="checkbox" name="likes" value="sing" ng-checked="like=='sing'">唱歌
+      </label>
+      <label>
+        <input type="checkbox" name="likes" value="dance" ng-checked="like=='dance'">跳舞
+      </label>
+      <label>
+        <input type="checkbox" name="likes" value="smile" ng-checked="like=='smile'">微笑
+      </label>
+    </li>
+    <li>
+      <img ng-src="{{path}}">
+    </li>
+    <li>
+     <select ng-model='val'>
+       <option value="1">html</option>
+       <option value="2">css</option>
+       <option value="3">js</option>
+     </select>
+    </li>
+    <li>
+      <ul ng-switch='val'>
+        <li ng-switch-when='1'>HTML初级</li>
+        <li ng-switch-when='1'>HTML中级</li>
+        <li ng-switch-when='1'>HTML高级</li>
+        <li ng-switch-when='2'>css初级</li>
+        <li ng-switch-when='2'>css中级</li>
+        <li ng-switch-when='2'>css高级</li>
+        <li ng-switch-when='3'>js初级</li>
+        <li ng-switch-when='3'>js中级</li>
+        <li ng-switch-when='3'>js高级</li>
+      </ul>
+    </li>
+    <li>{{num}},{{str}},{{arr}},{{obj}}</li>
+    <li ng-repeat="key in arr track by $index" ng-hide='$index==2'>
+     <div ng-class='{bgc:$index==color}'>{{key}}</div>
+    </li>
+  </ul>
+</body>
+<script>
+  var app = angular.module('app', []);
+  app.controller('ctrl',['$scope',function($scope){
+    $scope.like='dance';
+    $scope.path='../day03/1.jpeg';
+    $scope.num=13;
+    $scope.str='js';
+    $scope.obj={name:'zhangsan',age:9};
+    $scope.arr=['吃','喝','玩','乐'];
+    $scope.color=1;
+  }]);
+</script>
+
+</html>
